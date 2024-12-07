@@ -1,48 +1,72 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-int i,n;
 class search
 {
+    int a[10],cnt=0;
+    int n,i,target;
     public:
-    int a[10];
-    int ps=0;
     void accept()
-    {   
-      cout<<"Enter how many elements youy want to insert:";
-      cin>>n;
-      for(i=0;i<n;i++)
-      {
-        cout<<"\n Enter "<<i+1<<" element:";
-        cin>>a[i];
-      }
-    }
-    int check(int target)
     {
+        cout<<"Enter the size of array:";
+        cin>>n;
+        cout<<"Enter the elements of array:";
+        for(i=0;i<n;i++)
+        {
+            cin>>a[i];
+        }
+    }
+    void searche()
+    {
+        cout<<"Enter Search Element";
+        cin>>target;
         for(i=0;i<n;i++)
         {
             if(a[i]==target)
             {
-                cout<<"target found at index "<<i;	
-                 ps=1;
-            } 
+                cout<<"Elements Found at Position "<<i;
+                cnt++;
+            }
         }
-        if(ps==0)
-        { 
-             cout<<"\ntarget not found";
+        if(cnt==0)
+        {
+            cout<<"Element not found";
         }
 
-    
     }
-
-};
-
+     void display()
+    {
+      cout<<"Elements are:\n";
+      for(i=0;i<n;i++)
+      {
+        cout<<a[i]<<"\t";
+      }
+    }
+}s;
 int main()
 {
-  search s;
-  int target;
-   s.accept();
-   cout<<"\nEnter the target you want to find: ";
-   cin>>target;
-   s.check(target);
-   return 0;
-} 
+    int ch;
+    do{
+        cout<<"\n1.Accept\n2.Search\n3.Display \n4.Exit\n";
+        cout<<"Enter your choice:";
+        cin>>ch;
+        switch (ch)
+        {
+        case 1:
+        s.accept();
+        break;
+
+        case 2:
+        s.searche();
+        break;
+
+        case 3:
+        s.display();
+        break;
+
+        case 4:
+        exit(0);
+
+        }
+    }while(ch!=0);
+    return 0;
+}
